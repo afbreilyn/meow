@@ -9,10 +9,18 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 
 import Login from './components/login/Login';
+import Users from './components/users/Users';
+
+const isLoggedIn = () => {
+  // ...
+  true
+}
+
 
 const Root = () => (
   <Router>
@@ -26,6 +34,13 @@ const Root = () => (
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
+        <Route path="/users" render={() => (
+          isLoggedIn() ? (
+            <Users />
+          ) : (
+            <Redirect to="/login"/>
+          )
+        )} />
       </Switch>
     </div>
   </Router>
