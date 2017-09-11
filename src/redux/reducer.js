@@ -43,7 +43,7 @@ export function login(email, password) {
 
 function callLoginApi(email, password, callback) {
   setTimeout(() => {
-    if (email === 'admin@example.com' && password === 'admin') {
+    if (email === 'meow@meow.com' && password === 'meowmeow') {
       return callback(null);
     } else {
       return callback(new Error('Invalid email and/or password'));
