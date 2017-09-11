@@ -1,28 +1,46 @@
 import React from 'react';
-import { string, func } from 'prop-types'
+import { string, func, array } from 'prop-types'
 
-const TextInput = ({name, label, onChange, placeholder, value, error, type="text"}) => {
-  let wrapperClass = 'form-group';
-  
-  if (error && error.length > 0) {
-    wrapperClass += ' has-error';
-  }
+class TextInput extends React.Component {
+  render() {
+    let {
+      name,
+      label,
+      onChange,
+      placeholder,
+      value,
+      errors,
+      type
+    } = this.props;
 
-  return (
-    <div className={ wrapperClass }>
-      <label htmlFor={ name }>{ label }</label>
-      <div className="field">
-        <input
-          type={ type }
-          name={ name }
-          className="form-control"
-          placeholder={ placeholder }
-          value={ value }
-          onChange={ onChange } />
-        {error && <div>{error}</div>}
+    let wrapperClass = 'form-group';
+    let errorArr;
+
+    if (errors && errors.length > 0) {
+      wrapperClass += ' has-error';
+      errorArr = errors.map((err, idx) =>
+        <div key={idx}>
+          { err }
+        </div>
+      )
+    };
+
+    return (
+      <div className={ wrapperClass }>
+        <label htmlFor={ name }>{ label }</label>
+        <div className="field">
+          <input
+            type={ type || "text" }
+            name={ name }
+            className="form-control"
+            placeholder={ placeholder }
+            value={ value }
+            onChange={ onChange } />
+          { errors && errorArr }
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 TextInput.propTypes = {
@@ -31,7 +49,7 @@ TextInput.propTypes = {
   onChange: func.isRequired,
   placeholder: string,
   value: string,
-  error: string
+  errors: array
 };
 
 export default TextInput;

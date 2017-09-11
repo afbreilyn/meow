@@ -29,9 +29,23 @@ class LogInPage extends React.Component {
       isLoginPending,
       loginEmailError,
       loginErrorMessage,
-      loginPasswordError
+      loginPasswordError,
+      loggedIn
     } = this.props;
     
+    if (loggedIn) {
+      return(
+        <div>
+          why are you here??
+          <br />
+          go here:
+          <a href='/users'>
+            link
+          </a>
+        </div>
+      )
+    }
+
     return (
       <div>
         <form>
@@ -40,7 +54,7 @@ class LogInPage extends React.Component {
             label="email"
             value={ this.state.credentials.email }
             onChange={ this.onChange }
-            error={ loginEmailError } />
+            errors={ loginEmailError } />
 
           <TextInput
             name="password"
@@ -48,7 +62,7 @@ class LogInPage extends React.Component {
             type="password"
             value={ this.state.credentials.password }
             onChange={ this.onChange }
-            error={ loginPasswordError } />
+            errors={ loginPasswordError } />
 
           <input
             type="submit"
@@ -68,7 +82,8 @@ const mapStateToProps = (state) => {
     isLoginPending: state.session.isLoginPending,
     loginEmailError: state.session.loginEmailError,
     loginErrorMessage: state.session.loginErrorMessage,
-    loginPasswordError: state.session.loginPasswordError
+    loginPasswordError: state.session.loginPasswordError,
+    loggedIn: state.session.logged_in
   }
 }
 

@@ -1,4 +1,4 @@
 export default {  
-  session: !!sessionStorage.jwt,
+  logged_in: !!sessionStorage.jwt,
   isLoginPending: false
 }
