@@ -1,5 +1,22 @@
-{
-"data": [
+
+class UsersApi {
+  static getAllUsers() {
+
+    let loadUsersPromise = new Promise((resolve, reject) => {
+      setTimeout(function(){
+        /* of course - this would be pulling from an API in real life */
+        resolve( userData.data );
+      }, 250);
+    });
+
+    return loadUsersPromise
+  }
+}
+
+export default UsersApi;
+
+const userData = {
+  "data": [
     {
       "name": "Joe",
       "age": 24,
