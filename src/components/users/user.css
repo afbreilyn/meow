@@ -1,0 +1,50 @@
+.userCardContainer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userBox {
+  border: 2px solid black;
+  width: 30%;
+  max-width: 300px;
+
+  & h2 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .userBox {
+    width: 100%;
+    max-width: inherit;
+  }
+}
+
+
+.userBox.priority-1 {
+  background-color: orange;
+}
+
+.userBox.priority-2 {
+  background-color: green;
+}
+
+.userBox.priority-3 {
+  background-color: blue;
+}
+
+.userBox.priority-4 {
+  background-color: purple;
+}

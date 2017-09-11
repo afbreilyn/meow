@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as usersActions from '../../actions/usersActions';
 
+import UserCard from './user-card';
+
 class UsersPage extends React.Component {
   componentWillMount() {
     this.props.actions.loadUsers();
@@ -16,13 +18,13 @@ class UsersPage extends React.Component {
         this is the users page
         <br />
         it shouldn`t show up unless logged in!
-        <ul>
+        <div className="userCardContainer">
           { users.map((user, index) =>
-            <li key={index}>
-              { user.name }
-            </li>
+            <UserCard
+              key={ index }
+              user={ user } />
           )}
-        </ul>
+        </div>
       </div>
     )
   }
