@@ -6,7 +6,7 @@ class HomePage extends React.Component {
       <div>
         <h2>Pretty boring, right? Probably should try logging in:</h2>
         <br />
-        <a href="/login">Login</a>
+        <i className="material-icons">face</i>
       </div>
     )
   }

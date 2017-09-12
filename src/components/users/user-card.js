@@ -2,16 +2,20 @@ import React from 'react';
 import { object } from 'prop-types';
 import './user.css';
 
+import Card from 'material-ui/Card'
+
 const UserCard = ({ user }) => (
-  <div className={ `userBox priority-${user.priority}` }>
-    <h2>{ user.name }</h2>
-    <p className="age">
-      { `age: ${user.age}` }
-    </p>
-    <p className="category">
-      { `category: ${user.category}` }
-    </p>
-  </div>
+  <Card className={ `userBox priority-${user.priority}` }>
+    <div >
+      <h2>{ user.name }</h2>
+      <p className="age">
+        { `age: ${user.age}` }
+      </p>
+      <p className="category">
+        { `category: ${user.category}` }
+      </p>
+    </div>
+  </Card>
 )
 
 UserCard.propTypes = {

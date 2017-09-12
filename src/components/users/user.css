@@ -16,7 +16,9 @@
 .userBox {
   border: 2px solid black;
   width: 30%;
-  max-width: 300px;
+  max-width: 301px;
+  margin-bottom: 20px;
+  padding: 16px 12px;
 
   & h2 {
     font-size: 16px;
@@ -45,19 +47,19 @@
   }
 }
 
-
+/* i hate that these are important, but i'm just learning the material-ui library, and will fix it later */
 .userBox.priority-1 {
-  background-color: orange;
+  background-color: orange !important;
 }
 
 .userBox.priority-2 {
-  background-color: green;
+  background-color: green !important;
 }
 
 .userBox.priority-3 {
-  background-color: blue;
+  background-color: blue !important;
 }
 
 .userBox.priority-4 {
-  background-color: purple;
+  background-color: purple !important;
 }

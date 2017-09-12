@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as usersActions from '../../actions/usersActions';
 
+import './user.css';
+
 import UserCard from './user-card';
 import UserFilter from './user-filter';
+
+import {RadioButtonGroup} from 'material-ui/RadioButton';
 
 class UsersPage extends React.Component {
   componentWillMount() {
@@ -15,8 +19,13 @@ class UsersPage extends React.Component {
     let {
       users,
       categories,
-      filterString
+      // filterString
     } = this.props;
+
+
+    const handleRadio = (e, val) => {
+      this.props.actions.filterUsers(val)
+    }
 
     return(
       <div>
@@ -24,14 +33,23 @@ class UsersPage extends React.Component {
         <br />
         filters
 
-        { categories.map((cat, idx) =>
+        <RadioButtonGroup
+          // onChange={ () => }
+          onChange={ handleRadio }
+          name="categories">
+          { categories.map((cat, idx) =>
+            <UserFilter
+              key={ idx }
+              value={ cat }
+              // string={ cat } 
+              // onclick={ this.props.actions.filterUsers }
+              // currentFilterString={ filterString }
+              label={ cat } />
+          )}
           <UserFilter
-            key={ idx }
-            onclick={ this.props.actions.filterUsers }
-            string={ cat }
-            currentFilterString={ filterString } />
-        )}
-
+            value={ '' }
+            label={ 'Clear Filters' } />
+        </RadioButtonGroup>
         <br />
 
         <div className="userCardContainer">

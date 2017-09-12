@@ -1,6 +1,8 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 
+import {RadioButton} from 'material-ui/RadioButton';
+
 class UserFilter extends React.Component {
   static proTypes={
     string: string.isRequired,
@@ -11,23 +13,29 @@ class UserFilter extends React.Component {
   render() {
     let {
       string,
-      onclick,
-      currentFilterString
+      // onclick,
+      // currentFilterString
     } = this.props;
 
-    if ( string == currentFilterString ) {
-      return(
-        <div onClick={ () => onclick('') }>
-          { string }
-        </div>
-      )
-    }
-
     return(
-      <div onClick={ () => onclick(string) }>
-        { string }
-      </div>
+      <RadioButton
+        value={ string }
+        label={ string } />
     )
+
+    // if ( string == currentFilterString ) {
+    //   return(
+    //     <div onClick={ () => onclick('') }>
+    //       { string }
+    //     </div>
+    //   )
+    // }
+
+    // return(
+    //   <div onClick={ () => onclick(string) }>
+    //     { string }
+    //   </div>
+    // )
   }
 }
 
