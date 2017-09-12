@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as usersActions from '../../actions/usersActions';
 
 import UserCard from './user-card';
+import UserFilter from './user-filter';
 
 class UsersPage extends React.Component {
   componentWillMount() {
@@ -11,13 +12,28 @@ class UsersPage extends React.Component {
   }
 
   render() {
-    let { users } = this.props;
+    let {
+      users,
+      categories,
+      filterString
+    } = this.props;
 
     return(
       <div>
         this is the users page
         <br />
-        it shouldn`t show up unless logged in!
+        filters
+
+        { categories.map((cat, idx) =>
+          <UserFilter
+            key={ idx }
+            onclick={ this.props.actions.filterUsers }
+            string={ cat }
+            currentFilterString={ filterString } />
+        )}
+
+        <br />
+
         <div className="userCardContainer">
           { users.map((user, index) =>
             <UserCard
@@ -33,11 +49,15 @@ class UsersPage extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   if (state.users.users && state.users.users.length > 0) {
     return {
-      users: state.users.users
+      users: state.users.users,
+      categories: state.users.categories,
+      filterString: state.users.filterString
     }
   } else {
     return {
-      users: []
+      users: [],
+      categories: [],
+      filterString: state.users.filterString
     }
   }
 }
@@ -49,5 +69,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
-
-

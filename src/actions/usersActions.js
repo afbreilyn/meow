@@ -8,6 +8,20 @@ export function loadUsersSuccess(users) {
   };
 }
 
+export function filterUsers(str) {
+  return {
+    type: types.FILTER_USERS,
+    str
+  }
+}
+
+export function sortBy (sortKey) {
+  return {
+    type: types.SORT_USERS,
+    sortKey
+  }
+}
+
 export function loadUsers() {
   // make async call to api, handle promise, dispatch action when promise is resolved
   return function(dispatch) {

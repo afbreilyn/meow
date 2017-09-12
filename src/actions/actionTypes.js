@@ -6,3 +6,6 @@ export const LOGIN_PENDING = 'LOGIN_PENDING';
 
 // users actions
 export const LOAD_ALL_USERS = 'LOAD_ALL_USERS';
+
+export const FILTER_USERS = 'FILTER_USERS';
+export const SORT_USERS = 'SORT_USERS';

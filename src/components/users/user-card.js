@@ -2,25 +2,20 @@ import React from 'react';
 import { object } from 'prop-types';
 import './user.css';
 
-class UserCard extends React.Component {
-  static propTypes ={
-    user: object.isRequired
-  }
+const UserCard = ({ user }) => (
+  <div className={ `userBox priority-${user.priority}` }>
+    <h2>{ user.name }</h2>
+    <p className="age">
+      { `age: ${user.age}` }
+    </p>
+    <p className="category">
+      { `category: ${user.category}` }
+    </p>
+  </div>
+)
 
-  render() {
-    let {
-      user
-    } = this.props;
-
-    return(
-      <div className={ `userBox priority-${user.priority}` }>
-        <h2>{ user.name }</h2>
-        <p>
-          other details
-        </p>
-      </div>
-    )
-  }
+UserCard.propTypes = {
+  user: object.isRequired,
 }
 
 export default UserCard;
