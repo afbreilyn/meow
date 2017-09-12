@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 export default function userReducer(state = initialState.users, action) {
   switch(action.type) {
-    case types.LOAD_USERS_SUCCESS:
+    case types.LOAD_ALL_USERS:
      return { 
         ...state,
         users: action.users

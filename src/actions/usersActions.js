@@ -3,7 +3,7 @@ import usersApi from '../api/UsersApi';
 
 export function loadUsersSuccess(users) {
   return {
-    type: types.LOAD_USERS_SUCCESS,
+    type: types.LOAD_ALL_USERS,
     users
   };
 }
