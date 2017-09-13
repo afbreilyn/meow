@@ -1,0 +1,12 @@
+.fakeAppBar {
+
+}
+
+.tabContainer {
+  width: 300px;
+}
+
+.tabs > div:first-child {
+  height: 64px;
+  /* deals with a known material-ui bug */
+}

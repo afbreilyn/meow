@@ -3,6 +3,10 @@ import TextInput from '../common/TextInput';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
+import RaisedButton from 'material-ui/RaisedButton';
+import Card from 'material-ui/Card'
+
+import './loginCss.css';
 
 class LogInPage extends React.Component {
   constructor(props) {
@@ -12,10 +16,10 @@ class LogInPage extends React.Component {
     this.onSave = this.onSave.bind(this);
   }
 
-  onChange(event) {
+  onChange(event, str) {
     const field = event.target.name;
     const credentials = this.state.credentials;
-    credentials[field] = event.target.value;
+    credentials[field] = str;
     return this.setState({credentials: credentials});
   }
 
@@ -47,33 +51,32 @@ class LogInPage extends React.Component {
     }
 
     return (
-      <div>
+      <Card className="loginContainer">
+        { loginErrorMessage && <h3 className="red text-center">{ loginErrorMessage }</h3> }
         <form>
           <TextInput
             name="email"
             label="email"
             value={ this.state.credentials.email }
-            onChange={ this.onChange }
+            onchange={ this.onChange }
             errors={ loginEmailError } />
-
           <TextInput
             name="password"
             label="password"
             type="password"
             value={ this.state.credentials.password }
-            onChange={ this.onChange }
+            onchange={ this.onChange }
             errors={ loginPasswordError } />
-
-          <input
-            type="submit"
-            className="btn btn-primary"
-            onClick={ this.onSave } />
-            {" "}
+          <br />
+          <RaisedButton
+            label={ isLoginPending ? "Please wait..." : "Submit" }
+            style={null}
+            onClick={ this.onSave }
+            disabled={ isLoginPending }
+            fullWidth={ true } />
         </form>
-        { isLoginPending && <div>Please wait...</div> }
-        { loginErrorMessage && <div>{ loginErrorMessage }</div> }
-      </div>
-  );
+      </Card>
+    );
   }
 }
 

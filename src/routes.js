@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router-dom';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import UsersPage from './components/users/UsersPage';
@@ -8,7 +8,8 @@ import auth from './auth/authenticator';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={HomePage} />
+    <Route exact path="/" component={HomePage} />
+    <Route path="/home" component={HomePage} />
     <Route path="/login" component={LoginPage} />
     <Route path="/users" component={UsersPage} onEnter={requireAuth} />
   </Route>

@@ -7,6 +7,9 @@ import { Router, browserHistory } from 'react-router';
 import configureStore from './store/configureStore';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import { createBrowserHistory } from 'history'
+
+
 const store = configureStore();
 
 ReactDOM.render(
