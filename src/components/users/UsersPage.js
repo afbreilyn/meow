@@ -21,6 +21,7 @@ class UsersPage extends React.Component {
     let {
       users,
       categories,
+      filteredUsers
       // filterString
     } = this.props;
 
@@ -28,6 +29,13 @@ class UsersPage extends React.Component {
     const handleRadio = (e, val) => {
       this.props.actions.filterUsers(val)
     }
+
+    const sortBy = (field, asc) => {
+      this.props.actions.sortBy(field, asc);
+      // this.forceUpdate();
+    }
+
+    // console.log('filtered users are: ', filteredUsers)
 
     return(
       <div className="userCardPage">
@@ -38,13 +46,15 @@ class UsersPage extends React.Component {
         
         <FilterSection
           handleRadio={ handleRadio }
-          categories={ categories } />
+          categories={ categories }
+          sortBy={ sortBy } />
         <br />
 
+
         <div className="userCardContainer">
-          { users.map((user, index) =>
+          { filteredUsers.map((user) =>
             <UserCard
-              key={ index }
+              key={ user.name }
               user={ user } />
           )}
         </div>
@@ -57,6 +67,7 @@ const mapStateToProps = (state, ownProps) => {
   if (state.users.users && state.users.users.length > 0) {
     return {
       users: state.users.users,
+      filteredUsers: state.users.filteredUsers,
       categories: state.users.categories,
       filterString: state.users.filterString
     }
@@ -64,6 +75,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
       users: [],
       categories: [],
+      filteredUsers: [],
       filterString: state.users.filterString
     }
   }

@@ -23,7 +23,6 @@ const muiTheme = getMuiTheme({
     height: 50,
   },
 });
-debugger
 
 const store = configureStore();
 

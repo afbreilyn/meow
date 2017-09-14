@@ -4,10 +4,12 @@ import * as usersActions from '../../actions/usersActions';
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton';
 
 class FilterSection extends React.Component {
+
   render() {
     const {
       handleRadio,
-      categories
+      categories,
+      sortBy
     } = this.props;
 
     return(
@@ -25,6 +27,14 @@ class FilterSection extends React.Component {
             value={ '' }
             label={ 'Clear Filters' } />
         </RadioButtonGroup>
+
+        <div onClick={ () => sortBy('age') }>
+          sort by age
+        </div>
+
+        <div onClick={ () => sortBy('name') }>
+          sort by name
+        </div>
       </div>
     )
   }
