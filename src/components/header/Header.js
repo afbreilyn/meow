@@ -48,7 +48,7 @@ class Header extends React.Component {
 
     let logInOut = logged_in
       ? <Tab
-          label="Login"
+          label="Logout"
           data-route="/logout"
           onActive={ this.logOut }
           value="logout" />

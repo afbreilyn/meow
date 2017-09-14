@@ -7,9 +7,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <div className="internalContentContainer">
-          { this.props.children }
-        </div>
+        { this.props.children }
       </div>
     );
   }
