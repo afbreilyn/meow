@@ -8,6 +8,8 @@ import './user.css';
 import UserCard from './user-card';
 import UserFilter from './user-filter';
 
+import FilterSection from '../filters/FilterSection';
+
 import {RadioButtonGroup} from 'material-ui/RadioButton';
 
 class UsersPage extends React.Component {
@@ -28,28 +30,15 @@ class UsersPage extends React.Component {
     }
 
     return(
-      <div>
-        this is the users page
+      <div className="userCardPage">
+        <div className="text-center">
+          <h1>User Page</h1>
+        </div>
         <br />
-        filters
-
-        <RadioButtonGroup
-          // onChange={ () => }
-          onChange={ handleRadio }
-          name="categories">
-          { categories.map((cat, idx) =>
-            <UserFilter
-              key={ idx }
-              value={ cat }
-              // string={ cat } 
-              // onclick={ this.props.actions.filterUsers }
-              // currentFilterString={ filterString }
-              label={ cat } />
-          )}
-          <UserFilter
-            value={ '' }
-            label={ 'Clear Filters' } />
-        </RadioButtonGroup>
+        
+        <FilterSection
+          handleRadio={ handleRadio }
+          categories={ categories } />
         <br />
 
         <div className="userCardContainer">

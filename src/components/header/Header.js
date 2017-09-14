@@ -25,8 +25,7 @@ class Header extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  logOut(event) {
-    event.preventDefault();
+  logOut() {
     this.props.actions.logOutUser();
   }
 
@@ -36,10 +35,8 @@ class Header extends React.Component {
       tabSelected: newRL
     });
 
-
-
-    // window.location.href = `/${newRL}`;
-    // ^ doesn't work since it refreshes
+    window.location.href = `/${newRL}`;
+    // ^ doesn't work with underlines since it refreshes
 
     // this.props.history.push(tabSelected);
   }
@@ -49,11 +46,17 @@ class Header extends React.Component {
       logged_in
     } = this.props;
 
-
-
     let logInOut = logged_in
-      ? <a href="/logout" onClick={this.logOut}><Tab label="Log Out" /></a>
-      : <Link to="/login" activeClassName="active"><Tab label="Log In" /></Link>
+      ? <Tab
+          label="Login"
+          data-route="/logout"
+          onActive={ this.logOut }
+          value="logout" />
+      : <Tab
+          label="Login"
+          data-route="/login"
+          onActive={ this.handleChange }
+          value="login" />
 
     return (
       <AppBar className="fakeAppBar">
@@ -64,36 +67,12 @@ class Header extends React.Component {
               data-route="/"
               onActive={ this.handleChange }
               value="home" />
-            <Tab
-              label="Login"
-              data-route="/login"
-              onActive={ this.handleChange }
-              value="login" />
+            { logInOut }
           </Tabs>
         </div>
       </AppBar>
     )
   }
-
-  // render() {
-  //   if (this.props.logged_in) {
-  //     return (
-  //       <nav>
-  //         <IndexLink to="/" activeClassName="active">Home</IndexLink>
-  //         {" | "}
-          
-  //       </nav>
-  //     );
-  //   } else {
-  //     return (
-  //       <nav>
-  //         <IndexLink to="/" activeClassName="active">Home</IndexLink>
-  //         {" | "}
-          
-  //       </nav>
-  //     );
-  //   }
-  // }
 }
 
 const mapStateToProps = (state, ownProps) => {

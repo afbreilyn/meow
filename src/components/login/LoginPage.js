@@ -34,10 +34,10 @@ class LogInPage extends React.Component {
       loginEmailError,
       loginErrorMessage,
       loginPasswordError,
-      loggedIn
+      logged_in
     } = this.props;
     
-    if (loggedIn) {
+    if (logged_in) {
       return(
         <div>
           why are you here??
@@ -86,7 +86,7 @@ const mapStateToProps = (state) => {
     loginEmailError: state.session.loginEmailError,
     loginErrorMessage: state.session.loginErrorMessage,
     loginPasswordError: state.session.loginPasswordError,
-    loggedIn: state.session.logged_in
+    logged_in: state.session.logged_in,
   }
 }
 

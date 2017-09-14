@@ -1,5 +1,9 @@
+.userCardPage {
+  margin: 0 20px;
+}
+
 .userCardContainer {
-  max-width: 1200px;
+  max-width: 990px;
   margin-left: auto;
   margin-right: auto;
 
@@ -16,7 +20,7 @@
 .userBox {
   border: 2px solid black;
   width: 30%;
-  max-width: 301px;
+  max-width: 300px;
   margin-bottom: 20px;
   padding: 16px 12px;
 

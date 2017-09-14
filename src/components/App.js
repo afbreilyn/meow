@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router'
 import Header from './header/Header';
 
 class App extends React.Component {
@@ -14,4 +15,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);
