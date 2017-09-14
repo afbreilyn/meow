@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as sessionActions from '../../actions/sessionActions';
-// import { withRouter } from 'react-router-dom';
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
-
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import AppBar from 'material-ui/AppBar';
 import {Tabs, Tab} from 'material-ui/Tabs';
@@ -18,7 +15,7 @@ class Header extends React.Component {
     super(props);
 
     this.state={
-      tabSelected: 'home'
+      tabSelected: '/home'
     }
 
     this.logOut = this.logOut.bind(this);
@@ -35,10 +32,7 @@ class Header extends React.Component {
       tabSelected: newRL
     });
 
-    window.location.href = `/${newRL}`;
-    // ^ doesn't work with underlines since it refreshes
-
-    // this.props.history.push(tabSelected);
+    this.props.history.push(newRL);
   }
 
   render() {
@@ -46,12 +40,20 @@ class Header extends React.Component {
       logged_in
     } = this.props;
 
+    let {
+      tabSelected
+    } = this.state;
+
+
+    debugger
+
     let logInOut = logged_in
       ? <Tab
           label="Logout"
           data-route="/logout"
           onActive={ this.logOut }
-          value="logout" />
+          value="logout"
+          active={ true } />
       : <Tab
           label="Login"
           data-route="/login"
@@ -61,7 +63,8 @@ class Header extends React.Component {
     return (
       <AppBar className="fakeAppBar">
         <div className="tabContainer">
-          <Tabs className="tabs" value={ this.state.tabSelected }>
+          <Tabs className="tabs"
+            value={ tabSelected && this.props.location.pathname === tabSelected }>
             <Tab
               label="Home"
               data-route="/"
@@ -88,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

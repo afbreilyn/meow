@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import routes from './routes';
 import './index.css';
-import { Router, browserHistory } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -30,7 +30,7 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider muiTheme={muiTheme}>
-      <Router history={browserHistory} routes={routes} />
+      <Router children={routes} />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root')
