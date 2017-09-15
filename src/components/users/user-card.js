@@ -7,7 +7,9 @@ import Card from 'material-ui/Card'
 const UserCard = ({ user }) => (
   <Card className={ `userBox priority-${user.priority}` }>
     <div>
-      <h2>{ user.name }</h2>
+      <h2 className="name">
+        { user.name }
+      </h2>
       <p className="age">
         { `age: ${user.age}` }
       </p>

@@ -39,7 +39,7 @@ class UsersPage extends React.Component {
         ? <Redirect to='/login' />
         : <div className="userCardPage">
             <div className="userPageHeader text-center">
-              <h1>User Page</h1>
+              <h1>Users Page</h1>
             </div>
             <div className="userPageContent">
               <FilterSection

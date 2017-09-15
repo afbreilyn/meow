@@ -25,25 +25,25 @@
   max-width: 300px;
   margin-bottom: 20px;
   padding: 16px 12px;
-
-  & h2 {
-    font-size: 16px;
-    line-height: 1;
-    font-weight: bold;
-  }
-
-  & p.age {
-    font-size: 12px;
-    line-height: 1;
-    font-style: italic;
-  }
-
-  & p.category {
-    font-size: 12px;
-    line-height: 1;
-    font-style: inherit;
-  }
 }
+.name {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.age {
+  font-size: 12px;
+  line-height: 1;
+  font-style: italic;
+}
+
+.category {
+  font-size: 12px;
+  line-height: 1;
+  font-style: inherit;
+}
+
 
 
 @media screen and (max-width: 768px) {
