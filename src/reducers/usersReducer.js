@@ -1,12 +1,15 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-export function filterInReducer( data, filterString, sortKey, asc ) {
+export function filterInReducer( data, filterString, sortKey, asc, vipOnly ) {
   let filtered = filterString !== ''
     ? data.filter( data => data.category === filterString)
     : data
   if (sortKey) {
     filtered = sortFiltered( filtered, sortKey, asc )
+  }
+  if (vipOnly) {
+    filtered = filterNonVIPs( filtered );
   }
   return filtered;
 }
@@ -34,34 +37,41 @@ export default function userReducer(state = initialState.users, action) {
         ...state,
         users: action.users,
         filteredUsers: action.users,
-        // asc: true,
         categories: action.users.map(user => user.category).filter((category, idx, self) => self.indexOf(category) === idx), // maps all the categories of the users, then makes them unique
         sortKey: 'featured',
         vipOnly: false
       };
+
     case types.FILTER_USERS:
       return {
         ...state,
-        filteredUsers: filterInReducer(state.users, action.str, state.sortKey, state.asc),
+        filteredUsers: filterInReducer(state.users, action.str, state.sortKey, state.asc, state.vipOnly),
         filterString: action.str.toLowerCase()
       }
+
     case types.SORT_USERS:
       const { sortKey, asc } = action;
-      // debugger
-      let sorted = sortKey === 'featured' ? state.users : sortFiltered( state.filteredUsers, sortKey, asc );
-
+      let sorted = sortKey === 'featured'
+        ? filterInReducer(state.users, state.filterString) // just undoes the sort
+        : sortFiltered( state.filteredUsers, sortKey, asc );
       return {
         ...state,
         filteredUsers: sorted,
         sortKey: sortKey,
-        // vipOnly: false
+        asc: asc,
+        vipOnly: false // since we're sorting by something else, we aren't sorting by VIP!
+
         // asc: sortKey === state.sortKey ? !state.asc : true // <- leaving in cause this might be fun to play around with later
       }
+
     case types.GETVIP:
       return {
         ...state,
-        filteredUsers: filterNonVIPs(state.filteredUsers)
+        filteredUsers: filterNonVIPs(state.filteredUsers),
+        sortKey: 'VIP',
+        vipOnly: true
       }
+
     default: 
       return state;
   }
