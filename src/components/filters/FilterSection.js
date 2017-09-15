@@ -64,7 +64,7 @@ class FilterSection extends React.Component {
           )}
           <RadioButton
             value={ '' }
-            label={ 'Clear Filters' } />
+            label={ 'All Cats' } />
         </RadioButtonGroup>
 
 
