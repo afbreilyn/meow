@@ -14,7 +14,7 @@ export function filterInReducer (data, filterString, sortKey, asc) {
 export function sortFiltered( data, field, asc ) {
   data = data.slice(0);
   return data.sort((item1, item2) => {
-    if (typeof item1[field] == 'string') {
+    if (typeof item1[field] === 'string') {
       return (item1[field].localeCompare(item2[field])) * ( asc ? 1 : -1 )
     } else {
       return (item1[field] - item2[field]) * ( asc ? 1 : -1 )
@@ -46,7 +46,7 @@ export default function userReducer(state = initialState.users, action) {
         ...state,
         filteredUsers: sorted,
         sortKey: sortKey,
-        asc: sortKey == state.sortKey ? !state.asc : true
+        asc: sortKey === state.sortKey ? !state.asc : true
       }
     default: 
       return state;

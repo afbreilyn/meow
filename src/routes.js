@@ -4,7 +4,6 @@ import App from './components/App';
 import HomePage from './components/home/HomePage';
 import UsersPage from './components/users/UsersPage';
 import LoginPage from './components/login/LoginPage';
-import auth from './auth/authenticator';
 
 export default (
   <App>

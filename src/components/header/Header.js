@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as sessionActions from '../../actions/sessionActions';
@@ -49,8 +48,7 @@ class Header extends React.Component {
           label="Logout"
           data-route="/logout"
           onActive={ this.logOut }
-          value="/logout"
-          active={ true } />
+          value="/logout" />
       : <Tab
           label="Login"
           data-route="/login"

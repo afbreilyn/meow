@@ -27,7 +27,6 @@ export default function sessionReducer(state = initialState, action) {
         ...state,
         isLoginPending: action.loginPending
       };
-
     default: 
       return state;
   }

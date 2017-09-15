@@ -54,7 +54,7 @@ class LogInPage extends React.Component {
       <Card className="loginContainer">
         { loginErrorMessage 
           ? <h3 className="red text-center">{ loginErrorMessage }</h3>
-          : <h3 className="text-center">Sign in to contine....</h3> }
+          : <h3 className="text-center">Sign in to continue....</h3> }
         }
         <form>
           <TextInput

@@ -4,14 +4,10 @@ import { bindActionCreators } from 'redux';
 import { Redirect } from 'react-router-dom';
 import * as usersActions from '../../actions/usersActions';
 
-import './user.css';
-
 import UserCard from './user-card';
-import UserFilter from './user-filter';
-
 import FilterSection from '../filters/FilterSection';
 
-import {RadioButtonGroup} from 'material-ui/RadioButton';
+import './user.css';
 
 class UsersPage extends React.Component {
   componentWillMount() {
@@ -21,7 +17,6 @@ class UsersPage extends React.Component {
 
   render() {
     let {
-      users,
       categories,
       filteredUsers,
       logged_in

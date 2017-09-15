@@ -1,10 +1,8 @@
 import React from 'react';
-import * as usersActions from '../../actions/usersActions';
 
 import { RadioButtonGroup, RadioButton } from 'material-ui/RadioButton';
 
 class FilterSection extends React.Component {
-
   render() {
     const {
       handleRadio,

@@ -5,7 +5,7 @@ class SessionApi {
       let errors = []
 
       // check valid email address
-      let rx = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+      let rx = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
       if (!rx.test(email)) {
         errors.push('Please enter a valid email address')
@@ -47,7 +47,6 @@ class SessionApi {
         /* set the jwt to a random string since i'm lazy */
         return callback({jwt: 'esdiva23euihrusdfcasdfasfdnkjz2snciusdhuihr7480y2qikjh8'});
       } else {
-
         return callback({
           error: {
             loginErrorMessage: 'Denied',
