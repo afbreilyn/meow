@@ -36,7 +36,6 @@ export function loginUser(credentials) {
         dispatch(loginPending(false));
       } else {
         dispatch(loginError(response.error));
-        dispatch(loginSuccess(false));
         dispatch(loginPending(false));
       }
     })
