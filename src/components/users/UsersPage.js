@@ -19,37 +19,44 @@ class UsersPage extends React.Component {
     let {
       categories,
       filteredUsers,
-      logged_in
+      logged_in,
+      sortKey
     } = this.props;
 
     const handleRadio = (e, val) => {
       this.props.actions.filterUsers(val)
     }
 
-    const sortBy = (field, asc) => {
+    const sortByFunc = (field, asc) => {
       this.props.actions.sortBy(field, asc);
+    }
+
+    const getVIPFunc = (users) => {
+      this.props.actions.getVIP(users)
     }
 
     return !logged_in 
         ? <Redirect to='/login' />
         : <div className="userCardPage">
-            <div className="text-center">
-              <h1>User Page</h1>
-            </div>
-            <br />
-            
-            <FilterSection
-              handleRadio={ handleRadio }
-              categories={ categories }
-              sortBy={ sortBy } />
-            <br />
+            <div className="userPageContent">
+              <div className="userPageHeader text-center">
+                <h1>User Page</h1>
+              </div>
 
-            <div className="userCardContainer">
-              { filteredUsers.map((user) =>
-                <UserCard
-                  key={ user.name }
-                  user={ user } />
-              )}
+              <FilterSection
+                handleRadio={ handleRadio }
+                categories={ categories }
+                sortByFunc={ sortByFunc }
+                sortKey={ sortKey }
+                getVIPFunc={ getVIPFunc } />
+
+              <div className="userCardContainer">
+                { filteredUsers.map((user) =>
+                  <UserCard
+                    key={ user.name }
+                    user={ user } />
+                )}
+              </div>
             </div>
           </div>
   }
@@ -61,7 +68,7 @@ const mapStateToProps = (state, ownProps) => {
       users: state.users.users,
       filteredUsers: state.users.filteredUsers,
       categories: state.users.categories,
-      filterString: state.users.filterString,
+      sortKey: state.users.sortKey,
       logged_in: state.session.logged_in
     }
   } else {
@@ -69,7 +76,7 @@ const mapStateToProps = (state, ownProps) => {
       users: [],
       categories: [],
       filteredUsers: [],
-      filterString: state.users.filterString,
+      sortKey: state.users.sortKey,
       logged_in: state.session.logged_in
     }
   }

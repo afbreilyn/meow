@@ -9,3 +9,4 @@ export const LOAD_ALL_USERS = 'LOAD_ALL_USERS';
 
 export const FILTER_USERS = 'FILTER_USERS';
 export const SORT_USERS = 'SORT_USERS';
+export const GETVIP = 'GETVIP';

@@ -15,10 +15,17 @@ export function filterUsers(str) {
   }
 }
 
-export function sortBy (sortKey) {
+export function sortBy (sortKey, asc=true) {
   return {
     type: types.SORT_USERS,
-    sortKey
+    sortKey,
+    asc
+  }
+}
+
+export function getVIP() {
+  return {
+    type: types.GETVIP
   }
 }
 
