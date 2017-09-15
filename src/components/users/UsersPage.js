@@ -25,7 +25,6 @@ class UsersPage extends React.Component {
       categories,
       filteredUsers,
       logged_in
-      // filterString
     } = this.props;
 
     const handleRadio = (e, val) => {
@@ -34,10 +33,7 @@ class UsersPage extends React.Component {
 
     const sortBy = (field, asc) => {
       this.props.actions.sortBy(field, asc);
-      // this.forceUpdate();
     }
-
-    // console.log('filtered users are: ', filteredUsers)
 
     return !logged_in 
         ? <Redirect to='/login' />
@@ -52,7 +48,6 @@ class UsersPage extends React.Component {
               categories={ categories }
               sortBy={ sortBy } />
             <br />
-
 
             <div className="userCardContainer">
               { filteredUsers.map((user) =>

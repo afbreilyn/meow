@@ -2,27 +2,23 @@ import React from 'react';
 import { string, func, array } from 'prop-types'
 import TextField from 'material-ui/TextField';
 
-
-
 class TextInput extends React.Component {
   render() {
     let {
       name,
       label,
       onchange,
-      // placeholder,
       value,
       errors,
       type
     } = this.props;
 
-    // let wrapperClass = 'form-group';
     let errorArr;
 
     if (errors && errors.length > 0) {
       errorArr = errors.map((err, idx) =>
-        <div key={idx}>
-          {err}
+        <div key={ idx }>
+          { err }
         </div>
       )
     };
@@ -45,7 +41,6 @@ TextInput.propTypes = {
   name: string.isRequired,
   label: string.isRequired,
   onchange: func.isRequired,
-  // placeholder: string,
   value: string,
   errors: array
 };

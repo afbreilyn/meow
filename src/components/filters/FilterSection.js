@@ -41,24 +41,3 @@ class FilterSection extends React.Component {
 }
 
 export default FilterSection;
-
-// const mapStateToProps = (state, ownProps) => {
-//   if (state.users.users && state.users.users.length > 0) {
-//     return {
-//       categories: state.users.categories,
-//     }
-//   } else {
-//     return {
-//       categories: [],
-//     }
-//   }
-// }
-
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     actions: bindActionCreators(usersActions, dispatch)
-//   };
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(FilterSection);

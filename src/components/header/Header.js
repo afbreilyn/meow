@@ -44,32 +44,29 @@ class Header extends React.Component {
       tabSelected
     } = this.state;
 
-
-    debugger
-
     let logInOut = logged_in
       ? <Tab
           label="Logout"
           data-route="/logout"
           onActive={ this.logOut }
-          value="logout"
+          value="/logout"
           active={ true } />
       : <Tab
           label="Login"
           data-route="/login"
           onActive={ this.handleChange }
-          value="login" />
+          value="/login" />
 
     return (
       <AppBar className="fakeAppBar">
         <div className="tabContainer">
           <Tabs className="tabs"
-            value={ tabSelected && this.props.location.pathname === tabSelected }>
+            value={ this.props.location.pathname.includes(tabSelected) ? tabSelected : 'home' }>
             <Tab
               label="Home"
               data-route="/"
               onActive={ this.handleChange }
-              value="home" />
+              value="/home" />
             { logInOut }
           </Tabs>
         </div>
@@ -80,8 +77,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    logged_in: state.session.logged_in,
-    // isLoginPending: state.session.isLoginPending
+    logged_in: state.session.logged_in
   };
 }
 

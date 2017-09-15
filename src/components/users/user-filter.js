@@ -12,9 +12,7 @@ class UserFilter extends React.Component {
 
   render() {
     let {
-      string,
-      // onclick,
-      // currentFilterString
+      string
     } = this.props;
 
     return(
@@ -22,22 +20,7 @@ class UserFilter extends React.Component {
         value={ string }
         label={ string } />
     )
-
-    // if ( string == currentFilterString ) {
-    //   return(
-    //     <div onClick={ () => onclick('') }>
-    //       { string }
-    //     </div>
-    //   )
-    // }
-
-    // return(
-    //   <div onClick={ () => onclick(string) }>
-    //     { string }
-    //   </div>
-    // )
   }
 }
 
 export default UserFilter;
-

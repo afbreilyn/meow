@@ -4,14 +4,7 @@ import './user.css';
 
 import Card from 'material-ui/Card'
 
-// const UserCard = ({ user }) => (
-class UserCard extends React.Component {
-  static propTypes = {
-  user: object.isRequired,
-}
-render() {
-  const { user } = this.props;
-  return(
+const UserCard = ({ user }) => (
   <Card className={ `userBox priority-${user.priority}` }>
     <div >
       <h2>{ user.name }</h2>
@@ -23,12 +16,10 @@ render() {
       </p>
     </div>
   </Card>
-  )
-}
-}
+)
 
-// UserCard.propTypes = {
-//   user: object.isRequired,
-// }
+UserCard.propTypes = {
+  user: object.isRequired,
+}
 
 export default UserCard;
