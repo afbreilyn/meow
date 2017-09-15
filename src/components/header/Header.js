@@ -56,7 +56,8 @@ class Header extends React.Component {
           value="/login" />
 
     return (
-      <AppBar className="fakeAppBar">
+      <AppBar className="fakeAppBar"
+        showMenuIconButton={ false }>
         <div className="tabContainer">
           <Tabs className="tabs"
             value={ this.props.location.pathname.includes(tabSelected) ? tabSelected : 'home' }>
@@ -65,6 +66,13 @@ class Header extends React.Component {
               data-route="/"
               onActive={ this.handleChange }
               value="/home" />
+            { logged_in
+              ? <Tab
+                  label="Users"
+                  data-route="/users"
+                  onActive={ this.handleChange }
+                  value="/users" />
+              : null }
             { logInOut }
           </Tabs>
         </div>

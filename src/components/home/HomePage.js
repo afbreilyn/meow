@@ -4,9 +4,12 @@ class HomePage extends React.Component {
   render() {
     return(
       <div className="text-center">
-        <h2>Pretty boring, right? Probably should try logging in:</h2>
+        <h2>Pretty boring, right?</h2>
         <br />
-        <i className="material-icons">face</i>
+        <img src={ require("../../images/thisisawebsite.png") } alt="homestarWelcomePic" />
+        <br />
+        <br />
+        <small> by aaron foster breilyn </small>
       </div>
     )
   }
