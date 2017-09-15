@@ -1,0 +1,23 @@
+.filterContainer {
+  display: inline-flex;
+  width: 200px;
+  flex-direction: column;
+
+  border-right: 1px solid gray;
+  margin-right: 20px;
+
+  height: 300px;
+}
+
+.radioFilter {
+  padding-left: 24px;
+}
+
+.filterDropdown {
+  padding-bottom: 30px;
+}
+
+.filterH4 {
+  padding-left: 24px;
+  text-decoration: underline;
+}

@@ -3,18 +3,20 @@
 }
 
 .userCardContainer {
+  width: calc(100% - 220px);
   max-width: 990px;
   margin-left: auto;
   margin-right: auto;
 
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
+  display: inline-flex;
 
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.userPageContent {
+  display: flex;
+  
 }
 
 .userBox {

@@ -38,18 +38,17 @@ class UsersPage extends React.Component {
     return !logged_in 
         ? <Redirect to='/login' />
         : <div className="userCardPage">
+            <div className="userPageHeader text-center">
+              <h1>User Page</h1>
+            </div>
             <div className="userPageContent">
-              <div className="userPageHeader text-center">
-                <h1>User Page</h1>
-              </div>
-
               <FilterSection
                 handleRadio={ handleRadio }
                 categories={ categories }
                 sortByFunc={ sortByFunc }
                 sortKey={ sortKey }
                 getVIPFunc={ getVIPFunc } />
-
+                
               <div className="userCardContainer">
                 { filteredUsers.map((user) =>
                   <UserCard
