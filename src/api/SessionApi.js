@@ -43,7 +43,7 @@ class SessionApi {
       const emailErrors = checkEmail(credentials.email);
       const loginPasswordError = checkPassword(credentials.password);
 
-      if (credentials.email === 'test@zola.com' && credentials.password === 'zola#frontend') {
+      if (credentials.email === 'meow@meow.com' && credentials.password === 'meowmeow') {
         /* set the jwt to a random string since i'm lazy */
         return callback({jwt: 'esdiva23euihrusdfcasdfasfdnkjz2snciusdhuihr7480y2qikjh8'});
       } else {
